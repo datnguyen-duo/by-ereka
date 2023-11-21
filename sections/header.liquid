@@ -1,0 +1,105 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
+
+<header js-site-header="container" class="{% if template.name != "index" %}dark{% endif %}">
+  <div class="header-content">
+    <a href="/" class="logo-holder">
+      <img src="{{ 'ereka-light-logo.svg' | asset_url }}" class="light" alt="Ereka Light Logo" />
+      <img src="{{ 'ereka-dark-logo.svg' | asset_url }}" class="dark" alt="Ereka Dark Logo" />
+    </a>
+
+    <nav>
+      <div class="cart-opener" js-cart="open">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Group 149">
+            <path id="Vector" d="M7.42969 11.2857V6.87755C7.42969 3.6302 9.84619 1 12.8297 1C15.8132 1 18.2297 3.6302 18.2297 6.87755V11.2857" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+            <path id="Vector_2" d="M3.78696 7.23773C3.86658 6.75474 4.28414 6.40039 4.77364 6.40039H20.6264C21.1159 6.40039 21.5334 6.75474 21.613 7.23773L24.2083 22.9806C24.3087 23.5896 23.8389 24.1432 23.2216 24.1432H2.17835C1.56113 24.1432 1.09127 23.5896 1.19167 22.9806L3.78696 7.23773Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <span>
+          My basket
+        </span>
+      </div>
+      {% if section.settings.header_cta and section.settings.header_cta_link %}
+        <a href="{{ section.settings.header_cta_link }}" class="btn white-fill" data-title="{{ section.settings.header_cta }}">
+          {{ section.settings.header_cta }}
+        </a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+{% if section.settings.show-popup == true %}
+<div class="popup-wrap">
+  <div class="popup-holder">
+    <div class="close-popup">
+      <img src="{{ 'close.svg' | asset_url }}" />
+    </div>
+
+    <div class="popup-content">
+      <div class="left">
+        <img src="{{ section.settings.popup-img | img_url: "master" }}" />
+      </div>
+      <div class="right">
+        <div class="right-content">
+          <span>{{ section.settings.popup-subtitle }}</span>
+          <h2>{{ section.settings.popup-title }}</h2>
+          <p>{{ section.settings.popup-description }}</p>
+          
+          <div class="form-holder">
+            {{ section.settings.popup_form }}
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header_cta",
+        "default": "Shop Products",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "header_cta_link",
+        "label": "CTA Link"
+      },
+      {
+        "type": "header",
+        "content": "Popup Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "show-popup",
+        "label": "Show Popup",
+        "default": false
+      },{
+        "type": "image_picker",
+        "id": "popup-img",
+        "label": "Popup Image"
+      },{
+        "type": "text",
+        "id": "popup-subtitle",
+        "label": "Popup Subtitle"
+      },{
+        "type": "text",
+        "id": "popup-title",
+        "label": "Popup Title"
+      },{
+          "type": "html",
+          "id": "popup_form",
+          "label": "Popup Form"
+      },{
+        "type": "textarea",
+        "id": "popup-description",
+        "label": "Popup Description"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,189 @@
+/* styles/account.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.customer.account .account-body table tbody tr td::before,
+.customer.account .account-body table tbody tr td a,
+.customer.account .account-body table tbody tr td,
+.customer.account .account-body table thead th,
+.customer.account .account-body p,
+.customer.account .account-body a,
+.customer.account .account-header a,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.customer.account .account-body h2,
+.customer.account .account-header .account-header-content .customer__title {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3 {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.customer.account {
+  max-width: 1050px;
+  margin: auto;
+  padding: max(13.0208333333vw, 100px) max(1.0416666667vw, 20px);
+  box-sizing: border-box;
+}
+@media only screen and (max-width : 700px) {
+  .customer.account {
+    padding: 100px 0px;
+  }
+}
+.customer.account .visually-hidden {
+  display: none;
+}
+.customer.account .account-header {
+  margin-bottom: 30px;
+}
+@media only screen and (max-width : 1100px) {
+  .customer.account .account-header {
+    padding: 0 20px;
+  }
+}
+.customer.account .account-header .account-header-content {
+  border-bottom: 1px solid #749FBE;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.customer.account .account-header .account-header-content .customer__title {
+  font-size: 30px;
+  line-height: 38px;
+  color: #749FBE;
+  margin: 0;
+}
+.customer.account .account-header a {
+  font-size: 12px;
+  color: #749FBE;
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+}
+.customer.account .account-header a:hover {
+  text-decoration: none;
+}
+.customer.account .account-header a svg {
+  width: 15px;
+  margin-right: 5px;
+}
+.customer.account .account-body {
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+.customer.account .account-body .order-history {
+  margin-bottom: 60px;
+}
+@media only screen and (max-width : 1100px) {
+  .customer.account .account-body .my-addresses {
+    padding: 0 20px;
+  }
+}
+@media only screen and (max-width : 700px) {
+  .customer.account .account-body .my-addresses .address-info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.customer.account .account-body a {
+  font-size: 12px;
+  color: #749FBE;
+  text-decoration: underline;
+}
+.customer.account .account-body a:hover {
+  text-decoration: none;
+}
+.customer.account .account-body p {
+  font-size: 14px;
+  color: #749FBE;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+}
+.customer.account .account-body p strong {
+  font-weight: 700;
+}
+.customer.account .account-body h2 {
+  font-size: 30px;
+  line-height: 38px;
+  color: #749FBE;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #749FBE;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.customer.account .account-body table thead th {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px;
+  color: #749FBE;
+  background-color: #F9F6E8;
+}
+.customer.account .account-body table tbody tr {
+  border-bottom: 1px solid #F9F6E8;
+}
+.customer.account .account-body table tbody tr td {
+  font-size: 14px;
+  padding: 18px 12px;
+  color: #749FBE;
+  vertical-align: middle;
+}
+.customer.account .account-body table tbody tr td a {
+  font-size: 14px;
+  color: #749FBE;
+  padding: 0;
+  text-decoration: underline;
+}
+.customer.account .account-body table tbody tr td a:hover {
+  text-decoration: none;
+}
+@media only screen and (max-width: 750px) {
+  .customer.account .account-body table tbody tr td {
+    border-bottom: 1px solid #F9F9F7;
+    padding: 18px 20px;
+  }
+}
+.customer.account .account-body table tbody tr td::before {
+  font-size: 14px;
+  color: #749FBE;
+  vertical-align: middle;
+  font-weight: 700;
+}
+@media only screen and (max-width : 700px) {
+  .customer.account .account-body table tbody tr td.ColumnTotal {
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #F9F6E8;
+  }
+}

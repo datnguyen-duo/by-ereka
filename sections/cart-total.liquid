@@ -1,0 +1,25 @@
+{% assign total_regular = 0 %}
+{% assign total_sale = 0 %}
+{% comment %}<script>console.log({{ cart | json }});</script>{% endcomment %}
+
+{% for item in cart.items %}
+    {% if item.variant.compare_at_price %}
+        {% assign total_item_regular =  item.variant.compare_at_price | times: item.quantity %}
+        {% assign total_regular = total_regular | plus: total_item_regular %}
+    {% else %}
+        {% assign total_item_regular =  item.variant.price | times: item.quantity %}
+        {% assign total_regular = total_regular | plus: total_item_regular %}
+    {% endif %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% assign total_item_sale = item.variant.price | times: item.quantity %}
+    {% assign total_sale = total_sale | plus: total_item_sale %}
+{% endfor %}
+
+{% if total_regular > total_sale %}
+    <p class="cart-price-sale">{{ total_sale | money }}</p>
+{% endif %}
+<p class="cart-price-regular {% if total_regular > total_sale %} on-sale {% endif %}">
+    {{ total_regular | money }}
+</p>

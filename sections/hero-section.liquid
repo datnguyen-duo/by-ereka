@@ -1,0 +1,61 @@
+{{ 'hero-section.css' | asset_url | stylesheet_tag }}
+
+<section id="HeroSection-{{ section.id }}" class="hero-section-wrap">
+    <div class="hero-section-content">
+        <div class="left">
+            <div class="left-content" data-aos="fade">
+                {% if section.settings.heroTitle != empty %}
+                    <h1>
+                      {{ section.settings.heroTitle }}
+                    </h1>
+                {% endif %}
+
+                {% if section.settings.heroButtonLabel != empty and section.settings.buttonLink != empty %}
+                    <a href="{{ section.settings.buttonLink }}" class="btn white-fill" data-title="{{ section.settings.heroButtonLabel }}">
+                        
+                        {{ section.settings.heroButtonLabel }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="right" data-aos="fade">
+            <div class="overlay"></div>
+            <div class="media-holder">
+                {% if section.settings.heroVideo != empty %}
+                    {{ section.settings.heroVideo | media_tag: image_size: "2048x", autoplay: true, loop: true, controls: false, preload: "none" }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Hero Section",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "heroTitle",
+          "label": "Headline",
+          "info": "Wrap text with <em>some text</em> for italic text, and <br> to add line breaks."
+        }, {
+          "type": "video",
+          "id": "heroVideo",
+          "label": "Video"
+        }, {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button Link"
+        }, {
+          "type": "text",
+          "id": "heroButtonLabel",
+          "label": "Button Label"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Hero Section"
+        }
+      ]
+    }
+  {% endschema %}

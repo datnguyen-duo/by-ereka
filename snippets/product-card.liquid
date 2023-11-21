@@ -1,0 +1,61 @@
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+
+<div class="single-product">
+    <div class="image-holder-wrap" class='klaviyo-product-container' id='klaviyo-data-handle-{{ product.handle }}' data-klaviyo-handle='{{ product.handle }}'>
+        {% if product.available == false or product.compare_at_price %}
+            <div class="badge">
+                {% if product.available == false %}
+                Sold Out
+                {% elsif product.compare_at_price %}
+                On Sale
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <a href="{{ product.url | within: collection }}" class="image-holder">
+            <img
+            src="{{ product.featured_image.src | image_url: width: 150 }}"
+            data-srcset="{{ product.featured_image.src | image_url: width: 350 }} 100w, {{ product.featured_image.src | image_url: width: 350 }} 600w, {{ product.featured_image.src | image_url: width: 450 }} 1100w"
+            class="lazyload"
+            alt="{{ product.featured_image.alt }}" />
+
+            <img src="{{ product.metafields.custom.hover_image | image_url: width: 150 }}"
+            data-srcset="{{ product.metafields.custom.hover_image | image_url: width: 350 }} 100w, {{ product.metafields.custom.hover_image | image_url: width: 350 }} 600w, {{ product.metafields.custom.hover_image | image_url: width: 450 }} 1100w"
+            class="hover-image lazyload"
+            alt="{{ product.metafields.custom.hover_image.alt }}" />    
+        </a>
+        
+
+        {% if product.available %}
+            <div class="btn-holder">
+                <div class="btn blue-fill" data-title="ADD TO CART +" js-cart="add-cart-item" data-quantity="1" data-id="{{ product.variants[0].id }}">
+                    ADD TO CART +
+                </div>
+            </div>
+        {% else %}
+        {% comment %} <div class='klaviyo-product-container' id='klaviyo-data-handle-{{ product.handle }}' data-klaviyo-handle='{{ product.handle }}'>
+            <div class="klaviyo-button-container">
+            
+            </div>
+        </div> {% endcomment %}
+        {% endif %}
+    </div>
+
+    <a href="{{ product.url | within: collection }}" class="info-wrap">
+        <h3>{{ product.title }}</h3>
+        <div class="price">
+            {% if product.compare_at_price %}
+                <span class="regular-price">{{ product.price | money }}</span>
+        
+                <span class="compared-price">
+                  {{ product.compare_at_price | money }}
+                </span>
+            {% else %}
+        
+                <span class="regular-price">
+                  {{ product.price | money }}
+                </span>
+            {% endif %}
+        </div>
+    </a>
+</div>

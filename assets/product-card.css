@@ -1,0 +1,130 @@
+/* styles/product-card.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.single-product .price,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.single-product h3 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3 {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.single-product .image-holder-wrap {
+  position: relative;
+}
+.single-product .image-holder-wrap .image-holder {
+  position: relative;
+  overflow: hidden;
+  padding-top: 146%;
+  display: block;
+}
+.single-product .image-holder-wrap .image-holder img {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: all 400ms ease 0ms;
+}
+.single-product .image-holder-wrap .image-holder img.hover-image {
+  opacity: 0;
+  visibility: hidden;
+}
+.single-product .image-holder-wrap .badge {
+  position: absolute;
+  left: max(0.5208333333vw, 10px);
+  top: max(0.5208333333vw, 10px);
+  background-color: #F9F6E8;
+  font-size: max(0.625vw, 12px);
+  padding: max(0.4166666667vw, 8px) max(0.78125vw, 15px);
+  z-index: 3;
+  color: #749FBE;
+}
+.single-product .image-holder-wrap .btn-holder {
+  padding: 0 25px;
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute !important;
+  bottom: 20px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+  cursor: pointer;
+  transition: all 400ms ease 0ms;
+}
+@media only screen and (max-width : 1100px) {
+  .single-product .image-holder-wrap .btn-holder {
+    pointer-events: none;
+  }
+}
+.single-product .image-holder-wrap .btn-holder .btn {
+  width: 100%;
+}
+.single-product .image-holder-wrap .btn-holder .btn:hover {
+  background-color: #F9F6E8;
+  border-color: #F9F6E8;
+}
+@media (hover: hover) and (min-width: 768px) {
+  .single-product:hover .image-holder img.hover-image {
+    opacity: 1;
+    visibility: visible;
+  }
+  .single-product:hover .btn-holder {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.single-product h3 {
+  color: #749FBE;
+  font-size: max(1.5625vw, 22px);
+  margin-top: 15px;
+}
+.single-product .price {
+  color: #749FBE;
+  font-size: max(0.8333333333vw, 15px);
+  margin-top: 10px;
+}
+.single-product .price .compared-price {
+  margin-left: 5px;
+  text-decoration: line-through;
+  opacity: 0.5;
+}

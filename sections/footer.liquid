@@ -1,0 +1,120 @@
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
+<footer>
+  <div class="footer-content {% if template == 'collection' %}green-footer{% endif %}">
+    <div class="top-content">
+        <div class="left">
+            {% if section.settings.firstf_menu != null %}
+                <div class="single-menu">
+                    <span>{{ section.settings.firstf_menu.title }}</span>
+                    <ul>
+                        {% for link in linklists[section.settings.firstf_menu].links %}
+                            <li>
+                              <a href="{{ link.url }}">{{ link.title }}</a>
+                            </li>
+                        {% endfor %}
+                          <li>
+                            <p js-cart="open">View My Cart</p>
+                          </li>
+                    </ul>
+                </div>
+            {% endif %}
+            {% if section.settings.secondf_menu != null %}
+                <div class="single-menu">
+                    <span>{{ section.settings.secondf_menu.title }}</span>
+                    <ul>
+                        {% for link in linklists[section.settings.secondf_menu].links %}
+                            <li>
+                                <a href="{{ link.url }}">{{ link.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        <a href="/" class="logo-holder">
+            <img src="{{ 'ereka-footer-logo.svg' | asset_url }}" loading="lazy" alt="Ereka Footer Logo" />
+        </a>
+        <div class="right">
+            <div class="right-content">
+                {% if section.settings.newsletter_title != empty %}
+                    <span>
+                        {{ section.settings.newsletter_title }}
+                    </span>
+                {% endif %}
+                <div class="form-holder">
+                  {{ section.settings.newsletter_form }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-content">
+        {% if section.settings.secfooter_menu != null %}
+            <ul>
+                {% for link in linklists[section.settings.secfooter_menu].links %}
+                    <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        {% if section.settings.bottomfDesc != empty %}
+          <div class="bottom-desc">
+            {{ section.settings.bottomfDesc }}
+          </div>
+        {% endif %}
+    
+        {% if section.settings.footer_copywrite != empty %}        
+          <div class="copyright">
+            <p>
+                {{ section.settings.footer_copywrite }}
+            </p>
+          </div>
+        {% endif %}
+    </div>
+  </div>
+</footer>
+{% schema %}
+    {
+      "name": "Footer",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Top Footer Info"
+        },{
+          "type": "link_list",
+          "id": "firstf_menu",
+          "label": "Footer First Menu"
+        }, {
+          "type": "link_list",
+          "id": "secondf_menu",
+          "label": "Footer Second Menu"
+        },{
+          "type": "text",
+          "id": "newsletter_title",
+          "label": "Newsletter Title"
+        },{
+          "type": "html",
+          "id": "newsletter_form",
+          "label": "Newsletter Form"
+        }, {
+          "type": "header",
+          "content": "Bottom Footer Info"
+        }, {
+          "type": "link_list",
+          "id": "secfooter_menu",
+          "label": "Secondary Footer Menu"
+        }, {
+          "type": "richtext",
+          "id": "bottomfDesc",
+          "label": "Bottom Footer Text"
+        }, {
+          "type": "text",
+          "id": "footer_copywrite",
+          "default": "©2023 By Ereka",
+          "label": "Copywrite"
+        }
+      ]
+    }
+  {% endschema %}

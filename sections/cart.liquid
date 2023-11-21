@@ -1,0 +1,71 @@
+{{ 'cart.css' | asset_url | stylesheet_tag }}
+
+<div class="cart {% if template.name == 'collection' %}cart-collection{% endif %}" js-cart="wrapper">
+  <div class="cart-overlay" js-cart="close"></div>
+
+  <div class="cart-content hidden" js-cart="content">
+
+    <p
+      class="cart-empty"
+      js-cart="empty"
+      style="display: none">
+      {{ 'sections.cart.empty' | t }}
+    </p>
+
+    <div class="cart-header">
+      
+
+      <div class="cart-header-content">
+        <div class="cart-opener">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Group 149">
+                <path id="Vector" d="M7.42969 11.2857V6.87755C7.42969 3.6302 9.84619 1 12.8297 1C15.8132 1 18.2297 3.6302 18.2297 6.87755V11.2857" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+                <path id="Vector_2" d="M3.78696 7.23773C3.86658 6.75474 4.28414 6.40039 4.77364 6.40039H20.6264C21.1159 6.40039 21.5334 6.75474 21.613 7.23773L24.2083 22.9806C24.3087 23.5896 23.8389 24.1432 23.2216 24.1432H2.17835C1.56113 24.1432 1.09127 23.5896 1.19167 22.9806L3.78696 7.23773Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+                </g>
+            </svg>
+            My basket
+
+            <div class="cart-loader" js-cart="loader">
+                <div class="loader"></div>
+            </div>
+        </div>
+          {% comment %} <span js-cart="total-items"></span> {% endcomment %}
+        
+        <div class="close-cart" js-cart="close">
+          <img
+            src="{{ 'close.svg' | asset_url }}"
+            class="close-popup"
+            loading="lazy"
+            width="25"
+            height="25"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-body" js-cart="content-body">
+      <div class="cart-items" js-cart="cart-items"></div>
+    </div>
+
+    <div class="cart-footer" js-cart="footer">
+      <div class="footer-header">
+        <div class="header-left">
+          <div class="footer-title">Subtotal</div>
+          <div class="footer-text">
+            {{ section.settings.delivery_sentance_start }}
+            <span class="fromDateCart"></span>
+            {{ section.settings.delivery_date_separator }}
+            <span class="toDateCart"></span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="footer-price" js-cart="cart-price"></div>
+        </div>
+      </div>
+
+      <div class="footer-buttons">
+        <a href="/checkout" class="button btn blue-fill" data-title="Checkout">Checkout</a>
+      </div>
+    </div>
+  </div>
+</div>

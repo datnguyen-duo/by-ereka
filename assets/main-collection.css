@@ -1,0 +1,120 @@
+/* styles/main-collection.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.main-collection-section-wrap .main-collection-section-content .header-holder h1 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3,
+.main-collection-section-wrap .main-collection-section-content .header-holder span {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.main-collection-section-wrap .main-collection-section-content {
+  padding-top: max(11.4583333333vw, 100px);
+  overflow: hidden;
+}
+.main-collection-section-wrap .main-collection-section-content .header-holder {
+  text-align: center;
+  margin-bottom: max(5.2083333333vw, 50px);
+}
+.main-collection-section-wrap .main-collection-section-content .header-holder span {
+  margin-bottom: 20px;
+  display: inline-block;
+  color: #749FBE;
+  text-transform: uppercase;
+  font-size: max(0.7291666667vw, 12px);
+}
+.main-collection-section-wrap .main-collection-section-content .header-holder h1 {
+  font-size: max(4.5833333333vw, 50px);
+  color: #749FBE;
+  text-align: center;
+}
+.main-collection-section-wrap .main-collection-section-content .collection-products-holder {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 max(12.5vw, 30px);
+  position: relative;
+  width: calc(100% + 80px);
+  left: -40px;
+}
+@media only screen and (max-width : 1500px) {
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder {
+    width: calc(100% + 30px);
+    left: -15px;
+  }
+}
+@media only screen and (max-width : 1100px) {
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder {
+    padding: 0 max(7.8125vw, 30px);
+  }
+}
+@media only screen and (max-width : 767px) {
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder {
+    padding: 0 15px;
+    width: 100%;
+    left: 0px;
+  }
+}
+.main-collection-section-wrap .main-collection-section-content .collection-products-holder .single-product-holder {
+  box-sizing: border-box;
+  margin-bottom: max(5.2083333333vw, 50px);
+  width: 33.333333%;
+  padding: 0 40px;
+}
+@media only screen and (max-width : 1500px) {
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder .single-product-holder {
+    padding: 0 15px;
+  }
+}
+@media only screen and (max-width : 1000px) {
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder .single-product-holder {
+    width: 50%;
+  }
+}
+@media only screen and (max-width : 767px) {
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder .single-product-holder {
+    padding: 0;
+  }
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder .single-product-holder:nth-of-type(even) {
+    padding-left: 7px;
+  }
+  .main-collection-section-wrap .main-collection-section-content .collection-products-holder .single-product-holder:nth-of-type(odd) {
+    padding-right: 7px;
+  }
+}

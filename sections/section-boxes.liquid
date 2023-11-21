@@ -1,0 +1,78 @@
+{{ 'section-boxes.css' | asset_url | stylesheet_tag }}
+
+<section id="BoxesSection-{{ section.id }}" class="boxes-section-wrap">
+    <div class="boxes-section-content" data-aos="fade">
+        {% if section.settings.boxMainTitle != empty %}
+            <span>{{ section.settings.boxMainTitle }}</span>
+        {% endif %}
+        <div class="boxes-wrap" >
+            {% for block in section.blocks %}
+                <div class="single-box">
+                  {% if block.settings.boxImage != null %}
+                    <div class="icon">
+                        
+                        <img
+                        src="{{ block.settings.boxImage | image_url: width: 150 }}"
+                        data-srcset="{{ block.settings.boxImage | image_url: width: 350 }} 100w, {{ block.settings.boxImage | image_url: width: 350 }} 600w, {{ block.settings.boxImage | image_url: width: 450 }} 1100w"
+                        class="lazyload"
+                        alt="{{ block.settings.boxImage.alt }}" />
+                    </div>
+                  {% endif %}
+                    
+                    <div class="desc-info {% if block.settings.boxImage == null %}no-margin{% endif %}">
+                      {% if block.settings.boxTitle != empty %}
+                          <h2>
+                              {{ block.settings.boxTitle }}
+                          </h2>
+                      {% endif %}
+
+                      {% if block.settings.boxDescription != empty %}
+                          <p>
+                              {{ block.settings.boxDescription }}
+                          </p>
+                      {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Boxes",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "boxMainTitle",
+          "label": "Headline"
+        }
+      ],
+      "blocks": [
+      {
+        "type": "products",
+        "name": "Products",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "boxImage",
+            "label": "Image"
+          },{
+            "type": "text",
+            "id": "boxTitle",
+            "label": "Title"
+          },{
+            "type": "textarea",
+            "id": "boxDescription",
+            "label": "Description"
+          }
+        ]
+      }
+      ],
+      "presets": [
+        {
+          "name": "Boxes"
+        }
+      ]
+    }
+  {% endschema %}

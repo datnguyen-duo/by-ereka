@@ -1,0 +1,94 @@
+{{ 'section-slider-text.css' | asset_url | stylesheet_tag }}
+
+<section id="SliderTextSection-{{ section.id }}" class="slider-text-section-wrap">
+    <div class="slider-text-section-content">
+        <div class="left">
+            <div class="left-content" data-aos="fade">
+                {% if section.settings.sldMainTitle != blank %}
+                    <h2>
+                        {{ section.settings.sldMainTitle }}
+                    </h2>
+                {% endif %}
+
+                {% if section.settings.sldSubtitle != blank %}
+                    <span>{{ section.settings.sldSubtitle }}</span>
+                {% endif %}
+
+                {% if section.settings.sldDescription != blank %}
+                    <p>
+                        {{ section.settings.sldDescription }}
+                    </p>
+                {% endif %}
+
+                <div class="swiper-navigation" js-collection-swiper-wrap="navigation">
+                    <div class="button-left swiper-button" js-collection-swiper-wrap="prev">
+                        <img src="{{ 'swiper-arrow.svg' | asset_url }}" />
+                    </div>
+                    <div class="button-right swiper-button" js-collection-swiper-wrap="next">
+                        <img src="{{ 'swiper-arrow.svg' | asset_url }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right" data-aos="fade">
+            <div class="right-content" data-aos="fade" data-aos-delay="400">
+                <div class="swiper" js-collection-swiper-wrap="container">
+                    <div class="swiper-wrapper">
+                        {% for block in section.blocks %}
+                            <div class="swiper-slide">
+                                <div class="media-holder">
+                                    <img
+                                    src="{{ block.settings.single_image | image_url: width: 150 }}"
+                                    data-srcset="{{ block.settings.single_image | image_url: width: 400 }} 100w, {{ block.settings.single_image | image_url: width: 1000 }} 600w, {{ block.settings.single_image | image_url }} 1400w"
+                                    class="lazyload"
+                                    alt="{{ block.settings.single_image.alt }}" />
+                                </div>
+                            </div>    
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="swiper-pagination" js-collection-swiper-wrap="pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Slider With Text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "sldMainTitle",
+          "label": "Title"
+        },{
+          "type": "text",
+          "id": "sldSubtitle",
+          "label": "Subtitle"
+        },{
+          "type": "textarea",
+          "id": "sldDescription",
+          "label": "Description"
+        }
+      ],
+      "blocks": [
+        {
+            "type": "images",
+            "name": "Images",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "single_image",
+                    "label": "Image"
+                }
+            ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Slider With Text"
+        }
+      ]
+    }
+  {% endschema %}

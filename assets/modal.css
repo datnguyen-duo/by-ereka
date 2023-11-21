@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'cooper';
+    src: url('https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053') format('woff');  
+    font-style: normal;
+    font-weight:'normal';
+}
+
+@font-face {
+    font-family: 'adieu';
+    src: url('https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716') format('woff');  
+    font-style: normal;
+    font-weight:'normal';
+}
+
+@font-face {
+    font-family:"aktiv-grotesk";
+    src:url("https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display:auto;
+    font-style:normal;
+    font-weight:400;
+    font-stretch:normal;
+}
+
+#klaviyo-bis-modal .modal-title{
+    font: normal normal normal 35px/20px cooper;
+    text-align: center;
+    color: #749FBE;
+    line-height: 1.4em;
+}
+
+.klaviyo-bis-close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#klaviyo-bis-modal{
+    max-width: 580px;
+    width: 100%;
+}
+
+#klaviyo-bis-modal .close{
+    top: 20px;
+    right: 20px;
+    color: transparent;
+    font: normal normal normal 10px/13px adieu;
+}
+
+#klaviyo-bis-modal .close::after{
+    content: '';
+    background-image: url('https://by-ereka.myshopify.com/cdn/shop/t/3/assets/close.svg?v=55283116229357640431698253447');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+#klaviyo-bis-modal #container{
+    padding: 30px;
+    margin-top: 0;
+}
+
+#klaviyo-bis-modal form{
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+}
+
+#klaviyo-bis-modal p{
+    text-align: center;
+    font: normal normal normal 14px/14px aktiv-grotesk;
+    margin-top: 50px;
+    margin-bottom: 35px;
+  color: #749FBE;
+}
+#klaviyo-bis-modal select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+    border: 1px solid #dfdfdf;
+}
+
+#klaviyo-bis-modal strong{
+    text-transform: uppercase;
+}
+
+#klaviyo-bis-modal .input-lg{
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+    font: normal normal normal 12px/18px aktiv-grotesk;
+    border: none;
+    border-bottom: 1px solid #749FBE;
+    color: #749fbe;
+    padding: 10px 0;
+}
+
+#klaviyo-bis-modal .input-lg::placeholder{
+  color: #749fbe;
+}
+
+#klaviyo-bis-modal .submit-container button{
+    border-radius: 0px;
+    text-transform: uppercase;
+    color: #f9f6e8;
+    border: none;
+    background: #749FBE;
+    font: normal normal normal 14px/18px adieu;
+}
+
+#klaviyo-bis-modal #completed_message{
+    text-align: center;
+    font: normal normal normal 12px/18px aktiv-grotesk;
+}
+
+@media screen and (max-width: 749px){
+    #klaviyo-bis-modal .modal-title{
+        text-align: left;
+    }
+
+    #klaviyo-bis-modal .close{
+        top: 24px;
+    }
+
+    #klaviyo-bis-modal{
+        width: 90%;
+    }
+
+    #klaviyo-bis-modal #container{
+        padding: 20px;
+    }
+}

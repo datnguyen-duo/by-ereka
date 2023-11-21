@@ -1,0 +1,161 @@
+/* styles/login.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.customer.login form .field input::-moz-placeholder {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font1,
+.customer.login form a,
+.customer.login form .field input::placeholder,
+.customer.login form .field input,
+.customer.login form .errors ul li,
+.customer.login .form__message,
+.customer.login .login-desc,
+.customer.login .reset-desc,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.customer.login h1 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3 {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.customer.login {
+  padding: max(13.0208333333vw, 150px) max(1.0416666667vw, 20px);
+  max-width: 490px;
+  margin: auto;
+  text-align: center;
+}
+.customer.login h1 {
+  font-size: 30px;
+  line-height: 38px;
+  color: #749FBE;
+  text-align: center;
+}
+.customer.login .login-desc,
+.customer.login .reset-desc {
+  margin: 0;
+  font-size: 14px;
+  color: #749FBE;
+  margin-top: 10px;
+}
+.customer.login .form__message {
+  font-size: 12px;
+  color: #749FBE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.customer.login .form__message .visually-hidden {
+  display: none;
+}
+.customer.login .form__message svg {
+  width: 15px;
+  margin-right: 5px;
+}
+.customer.login form {
+  margin-top: 30px;
+}
+.customer.login form #RecoverEmail-email-error {
+  margin-top: 10px;
+}
+.customer.login form .errors {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.customer.login form .errors ul li {
+  font-size: 12px;
+  color: #749FBE;
+  text-align: center;
+}
+.customer.login form .field label {
+  display: none;
+}
+.customer.login form .field input {
+  background-color: transparent;
+  width: 100%;
+  padding: 22px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #749FBE;
+  font-size: 14px;
+  color: #749FBE;
+  font-weight: 700;
+}
+.customer.login form .field input::-moz-placeholder {
+  font-size: 14px;
+  opacity: 1;
+  color: #749FBE;
+  font-weight: 700;
+}
+.customer.login form .field input::placeholder {
+  font-size: 14px;
+  opacity: 1;
+  color: #749FBE;
+  font-weight: 700;
+}
+.customer.login form .field input:focus {
+  outline: none;
+}
+.customer.login form .field #CustomerEmail {
+  border-top: 1px solid #749FBE;
+}
+.customer.login form a {
+  text-align: center;
+  font-size: 12px;
+  color: #749FBE;
+  text-decoration: underline;
+  margin-top: 10px;
+  display: inline-block;
+}
+.customer.login form a.forgot-pass {
+  margin-top: 10px;
+  text-align: left;
+}
+.customer.login form a.create-account,
+.customer.login form a.cancel-reset {
+  margin-top: 20px;
+}
+.customer.login form a:hover {
+  text-decoration: none;
+}
+.customer.login form .btn {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 0px;
+}

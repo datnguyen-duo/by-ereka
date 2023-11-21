@@ -1,0 +1,79 @@
+{{ 'section-cta.css' | asset_url | stylesheet_tag }}
+
+<section id="CtaSection-{{ section.id }}" class="cta-section-wrap">
+    <div class="cta-section-content">
+        <img src="{{ 'lemon.svg' | asset_url }}" class="first-shape" data-aos="fade" />
+        <div class="left" data-aos="fade">
+            {% if section.settings.ctaImage != null %}
+                <div class="media-holder">
+                    <img
+                        src="{{ section.settings.ctaImage | image_url: width: 150 }}"
+                        data-srcset="{{ section.settings.ctaImage | image_url: width: 400 }} 100w, {{ section.settings.ctaImage | image_url: width: 1000 }} 600w, {{ section.settings.ctaImage | image_url }} 1400w"
+                        class="lazyload"
+                        alt="{{ section.settings.ctaImage.alt }}" />
+                </div>
+            {% endif %}
+        </div>
+        <div class="right">
+           <div class="right-content" data-aos="fade">
+                <div class="first-contact">
+                    {% if section.settings.emailTitle != empty %}
+                        <span class="subtitle">{{ section.settings.emailTitle }}</span>
+                    {% endif %}
+
+                    {% if section.settings.ctaEmail != empty %}
+                        <a href="mailto:{{ section.settings.ctaEmail }}" id="contact-email">
+                            {{ section.settings.ctaEmail }}
+                        </a>
+                        <span class="small-info copy-text">(click to copy)</span>
+                    {% endif %}
+                </div>
+                
+                <div class="second-contact">
+                    {% if section.settings.formTitle != empty %}
+                        <span class="subtitle">{{ section.settings.formTitle }}</span>
+                    {% endif %}
+                    
+                    <div class="form-holder">
+                      {{ section.settings.cta_newsletter_form }}
+                    </div>
+                    <span class="small-info">Subscribe for updates and new product alerts. </span>
+                </div>
+           </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "CTA Section",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "ctaImage",
+          "label": "Image"
+        },{
+          "type": "text",
+          "id": "emailTitle",
+          "label": "Email Title"
+        }, {
+          "type": "text",
+          "id": "ctaEmail",
+          "label": "Email"
+        },{
+          "type": "html",
+          "id": "cta_newsletter_form",
+          "label": "Newsletter Form"
+        },{
+          "type": "text",
+          "id": "formTitle",
+          "label": "Form Title"
+        }
+      ],
+      "presets": [
+        {
+          "name": "CTA Section"
+        }
+      ]
+    }
+  {% endschema %}

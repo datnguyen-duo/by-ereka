@@ -1,0 +1,96 @@
+{% comment %}
+  Rendering cart items
+  This section is used by ajax to render cart items in cart
+{% endcomment %}
+{% for item in cart.items %}
+{% comment %}<script>console.log({{ item | json }});</script>{% endcomment %}
+{% comment %}<script>console.log({{ item.variant | json }});</script>{% endcomment %}
+{% comment %}<script>console.log({{ item.product.variants | json }});</script>{% endcomment %}
+
+  {% if item.variant.compare_at_price %}
+  {% assign itemRegularPrice = item.variant.compare_at_price %}
+{% else %}
+  {% assign itemRegularPrice = item.final_price %}
+{% endif %}
+
+{% assign itemTotalRegularPrice = item.quantity | times: itemRegularPrice %}
+
+{% if item.variant.compare_at_price %}
+  {% assign itemSalePrice = item.final_price %}
+  {% assign itemTotalSalePrice = item.quantity | times: item.final_price %}
+{% endif %}
+
+{% capture price_template %}
+  {% if itemTotalSalePrice %}
+    <p class="price-sale">{{ itemTotalSalePrice | money }}</p>
+  {% endif %}
+
+  <p class="price-regular {% if itemSalePrice %} on-sale {% endif %}">
+    {{ itemTotalRegularPrice | money }}
+  </p>
+{% endcapture %}
+
+<div
+  class="cart-item"
+  id="cart-item-{{ item.id }}"
+  data-regular-price="{{ itemTotalRegularPrice }}"
+  data-sale-price="{{ itemTotalSalePrice }}">
+  <div class="item-image">
+    <div class="item-image-holder">
+
+      {% if item.variant.featured_image %}
+        <img
+          src="{{ item.variant.featured_image | image_url }}"
+          alt="{{ item.product.featured_image.alt }}"
+          loading="lazy">
+      {% else %}
+        <img
+          src="{{ item.product.featured_image | image_url }}"
+          alt="{{ item.product.featured_image.alt }}"
+          loading="lazy">
+      {% endif %}
+    </div>
+  </div>
+  <div class="item-info">
+    <div class="item-info-header">
+      <div class="info-left">
+        <div class="item-title">{{ item.product.title }}</div>
+
+        {% if item.product.has_only_default_variant != true %}
+          <div class="item-subtitle">{{ item.variant.title }} {{ item.product.metafields.custom.product_color }}</div>
+        {% endif %}
+
+        <div class="item-price">{{ price_template }}</div>
+      </div>
+      {% comment %} <div class="info-right">
+        <div class="item-price">{{ price_template }}</div>
+      </div> {% endcomment %}
+    </div>
+      <div class="item-quantity-wrap">
+          <div class="item-quantity">
+            <div class="input-holder">
+              <button class="quantity-plus-btn" js-cart="item-quantity-minus">
+                  <img src="{{ 'minus.svg' | asset_url }}" alt="Ereka Minus" />
+              </button>
+              <input
+                type="text"
+                value="{{ item.quantity }}"
+                name="item-quantity-{{ item.id }}"
+                id="cart-item-quantity-{{ item.id }}"
+                js-cart="item-quantity-input"
+                data-variant-id="{{ item.id }}"
+                readonly>
+              <button class="quantity-minus-btn" js-cart="item-quantity-plus"><img src="{{ 'plus.svg' | asset_url }}" alt="Ereka Plus" /></button>
+            </div>
+          </div>
+      
+          <div
+            class="item-remove"
+            js-cart="remove-item"
+            data-variant-id="{{ item.id }}">
+            <span>Remove</span>
+          </div>
+      </div>
+  </div>
+</div>
+{% endfor %}

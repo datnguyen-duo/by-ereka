@@ -1,0 +1,90 @@
+/* styles/featured-products.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.featured-products-section-wrap .featured-products-section-content .left .left-content h2 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3 {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.featured-products-section-wrap .featured-products-section-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: max(7.8125vw, 50px) max(12.5vw, 30px);
+}
+@media only screen and (max-width : 1100px) {
+  .featured-products-section-wrap .featured-products-section-content {
+    padding: max(7.8125vw, 50px) max(7.8125vw, 30px);
+  }
+}
+@media only screen and (max-width : 767px) {
+  .featured-products-section-wrap .featured-products-section-content {
+    padding: 50px 0;
+  }
+}
+.featured-products-section-wrap .featured-products-section-content .left {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: max(5.2083333333vw, 50px);
+}
+.featured-products-section-wrap .featured-products-section-content .left .left-content {
+  text-align: center;
+}
+.featured-products-section-wrap .featured-products-section-content .left .left-content h2 {
+  font-size: max(2.6041666667vw, 40px);
+  color: #749FBE;
+}
+.featured-products-section-wrap .featured-products-section-content .left .left-content .btn {
+  margin-top: 20px;
+}
+@media only screen and (max-width : 767px) {
+  .featured-products-section-wrap .featured-products-section-content .left .left-content .btn {
+    margin-top: 20px;
+  }
+}
+.featured-products-section-wrap .featured-products-section-content .right {
+  width: 100%;
+}
+.featured-products-section-wrap .featured-products-section-content .right .right-content {
+  position: relative;
+}
+.featured-products-section-wrap .featured-products-section-content .right .right-content .single-product-wrap {
+  box-sizing: border-box;
+}

@@ -1,0 +1,89 @@
+{{ 'section-highlights.css' | asset_url | stylesheet_tag }}
+
+<section id="HighlightsSection-{{ section.id }}" class="highlights-section-wrap" js-highlight-color-switcher="container">
+    <div class="highlights-section-content">
+        <div class="headline-section">
+            
+            {% if section.settings.highlightsTitle != empty %}
+                <h2 data-aos="fade">
+                  {{ section.settings.highlightsTitle }}
+                </h2>
+            {% endif %}
+
+            <img src="{{ 'lemon.svg' | asset_url }}" class="first-shape" data-aos="fade" />
+            <img src="{{ 'lemon-second.svg' | asset_url }}" class="second-shape" data-aos="fade" />
+        </div>
+
+        <div class="single-highlight-section">
+            <div class="left">
+                <div class="left-content">
+                    <div class="media-holder">
+                        {% for block in section.blocks %}
+                            <div class="highlight-media" data-product="{{ block.settings.single_product.handle }}">
+                                {{ block.settings.blockVideo | media_tag: image_size: "2048x", autoplay: true, loop: true, controls: false, preload: "metadata" }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                {% for block in section.blocks %}
+                    {% assign product = block.settings.single_product %}
+                    
+                    <div class="right-content-wrap" data-color="{{ block.settings.color }}" data-product="{{ product.handle }}" style="--tooltip-color: {{ block.settings.color }};">
+                        <div class="right-content">
+                            {% render 'product-card', product: product %}
+                        </div>
+
+                        <div class="media-holder">
+                          <div class="highlight-media-mobile">
+                              {{ block.settings.blockVideo | media_tag: image_size: "2048x", autoplay: true, loop: true, controls: false, preload: "metadata" }}
+                          </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Highlights",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "highlightsTitle",
+          "label": "Headline",
+          "info": "Wrap text with <em>some text</em> for italic text, and <br> to add line breaks."
+        }
+      ],
+      "blocks": [
+      {
+        "type": "products",
+        "name": "Products",
+        "settings": [
+          {
+            "type": "product",
+            "id": "single_product",
+            "label": "Product"
+          },{
+            "type": "color",
+            "id": "color",
+            "label": "Block Color"
+          },{
+            "type": "video",
+            "id": "blockVideo",
+            "label": "Block Video"
+          }
+        ]
+      }
+      ],
+      "presets": [
+        {
+          "name": "Highlights"
+        }
+      ]
+    }
+  {% endschema %}

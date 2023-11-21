@@ -1,0 +1,22 @@
+{{ 'main-collection.css' | asset_url | stylesheet_tag }}
+
+<section id="MainCollection-{{ section.id }}" class="main-collection-section-wrap" js-collection-wrap="container">
+    <div class="main-collection-section-content">
+        <div class="header-holder" data-aos="fade">
+            <span>shop products</span>
+            {% if collection.title %}
+                <h1>
+                  {{ collection.title }}
+                </h1>
+            {% endif %}
+        </div>
+
+        <div class="collection-products-holder">
+            {% for product in collection.products %}
+                <div class="single-product-holder" data-aos="fade">
+                    {% render 'product-card', product: product %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

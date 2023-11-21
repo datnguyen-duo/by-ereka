@@ -1,0 +1,140 @@
+/* styles/hero-section.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.hero-section-wrap .hero-section-content .left .left-content h1 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3 {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.hero-section-wrap {
+  background-color: #749FBE;
+}
+.hero-section-wrap .hero-section-content {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+@media only screen and (max-width : 1000px) {
+  .hero-section-wrap .hero-section-content {
+    height: auto;
+  }
+}
+.hero-section-wrap .hero-section-content .left {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+@media only screen and (max-width : 1000px) {
+  .hero-section-wrap .hero-section-content .left {
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 50px;
+  }
+}
+@media only screen and (max-width : 767px) {
+  .hero-section-wrap .hero-section-content .left {
+    padding: 100px 0;
+    padding-top: 150px;
+  }
+}
+.hero-section-wrap .hero-section-content .left .left-content {
+  padding: 0 max(3.125vw, 20px);
+}
+.hero-section-wrap .hero-section-content .left .left-content h1 {
+  font-size: max(4.5833333333vw, 50px);
+  color: #F9F6E8;
+}
+.hero-section-wrap .hero-section-content .left .left-content h1 em {
+  font-style: italic;
+  line-height: 92px;
+  display: inline;
+  line-height: 1em;
+}
+.hero-section-wrap .hero-section-content .left .left-content .btn {
+  margin-top: 40px;
+}
+.hero-section-wrap .hero-section-content .right {
+  width: 55%;
+  position: relative;
+}
+@media only screen and (max-width : 1000px) {
+  .hero-section-wrap .hero-section-content .right {
+    width: 100%;
+  }
+}
+.hero-section-wrap .hero-section-content .right .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(63, 75, 84, 0.2) 0%, rgba(63, 75, 84, 0) 100%);
+}
+.hero-section-wrap .hero-section-content .right .media-holder {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+@media only screen and (max-width : 1000px) {
+  .hero-section-wrap .hero-section-content .right .media-holder {
+    height: auto;
+    padding-top: 65%;
+  }
+}
+@media only screen and (max-width : 767px) {
+  .hero-section-wrap .hero-section-content .right .media-holder {
+    padding-top: 110%;
+  }
+}
+.hero-section-wrap .hero-section-content .right .media-holder img,
+.hero-section-wrap .hero-section-content .right .media-holder video {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

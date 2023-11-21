@@ -1,0 +1,81 @@
+
+{{ 'section-instagram.css' | asset_url | stylesheet_tag }}
+
+<section id="InstagramSection-{{ section.id }}" class="instagram-section-wrap" js-instagram="container">
+    <div class="instagram-section-content" data-aos="fade">
+        {% if section.settings.instTitle != empty %}
+            <h2>
+              {{ section.settings.instTitle }}
+            </h2>
+        {% endif %}
+
+        {% if section.settings.instButtonLabel != empty and section.settings.instbuttonLink != empty %}
+            <a href="{{ section.settings.instbuttonLink }}" target="_blank" class="btn blue" data-title="{{ section.settings.instButtonLabel }}">
+                {{ section.settings.instButtonLabel }}
+            </a>
+        {% endif %}
+
+        <div class="splide instagram-slider-content" data-aos="fade">
+            <div class="splide__track">
+            <ul class="splide__list">
+                {% for block in section.blocks %}
+                    <li class="splide__slide">
+                        <a href="{{ block.settings.singImgUrl }}" target="_blank">
+                            {% if block.settings.singleInstImage != blank %}
+                                <img
+                                src="{{ block.settings.singleInstImage | image_url: width: 150 }}"
+                                data-srcset="{{ block.settings.singleInstImage | image_url: width: 550 }} 100w, {{ block.settings.singleInstImage | image_url: width: 650 }} 600w, {{ block.settings.singleInstImage | image_url: width: 850 }} 1100w"
+                                class="lazyload"
+                                alt="{{ block.settings.singleInstImage.alt }}" />
+                            {% endif %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Instagram Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "instTitle",
+          "label": "Headline"
+        }, {
+          "type": "url",
+          "id": "instbuttonLink",
+          "label": "Button Link"
+        }, {
+          "type": "text",
+          "id": "instButtonLabel",
+          "label": "Button Label"
+        }
+      ],
+      "blocks": [
+      {
+        "type": "images",
+        "name": "Instagram Images",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "singleInstImage",
+                "label": "Image"
+            }, {
+               "type": "url",
+                "id": "singImgUrl",
+                "label": "ImageUrl"
+            }
+        ]
+      }
+      ],
+      "presets": [
+        {
+          "name": "Instagram Section"
+        }
+      ]
+    }
+  {% endschema %}

@@ -1,0 +1,76 @@
+{{ 'featured-products.css' | asset_url | stylesheet_tag }}
+
+<section id="FeaturedProductsSection-{{ section.id }}" class="featured-products-section-wrap" js-featured-wrap="container">
+    <div class="featured-products-section-content">
+        <div class="left">
+            <div class="left-content" data-aos="fade">
+                {% if section.settings.featuredPTitle != empty %}
+                    <h2>
+                      {{ section.settings.featuredPTitle }}
+                    </h2>
+                {% endif %}
+
+                {% if section.settings.featuredButtonLabel != empty and section.settings.featuredButtonLink != empty %}
+                    <a href="{{ section.settings.featuredButtonLink }}" class="btn blue" data-title="{{ section.settings.featuredButtonLabel }}">
+                        {{ section.settings.featuredButtonLabel }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-content" data-aos="fade">
+              <div class="swiper" js-featured-swiper-wrap="container">
+                <div class="swiper-wrapper">
+                  {% for block in section.blocks %}
+                      {% assign product = block.settings.single_product %}
+                      <div class="swiper-slide">
+                        <div class="single-product-wrap">
+                            {% render 'product-card', product: product %}
+                        </div>
+                      </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Featured Products",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "featuredPTitle",
+          "label": "Headline"
+        }, {
+          "type": "url",
+          "id": "featuredButtonLink",
+          "label": "Button Link"
+        }, {
+          "type": "text",
+          "id": "featuredButtonLabel",
+          "label": "Button Label"
+        }
+      ],
+      "blocks": [
+      {
+        "type": "products",
+        "name": "Products",
+        "settings": [
+          {
+            "type": "product",
+            "id": "single_product",
+            "label": "Product"
+          }
+        ]
+      }
+      ],
+      "presets": [
+        {
+          "name": "Featured Products"
+        }
+      ]
+    }
+  {% endschema %}

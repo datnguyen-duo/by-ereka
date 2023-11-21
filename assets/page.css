@@ -1,0 +1,114 @@
+/* styles/page.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.text,
+.mainPage-section-wrap .mainPage-section-content .rte ol li,
+.mainPage-section-wrap .mainPage-section-content .rte ul li,
+.mainPage-section-wrap .mainPage-section-content .rte p,
+.mainPage-section-wrap .mainPage-section-content .rte a {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.mainPage-section-wrap .mainPage-section-content .rte h3,
+.mainPage-section-wrap .mainPage-section-content .rte h4,
+.mainPage-section-wrap .mainPage-section-content .rte h5,
+.mainPage-section-wrap .mainPage-section-content .rte h6,
+.mainPage-section-wrap .mainPage-section-content .rte h2,
+.mainPage-section-wrap .mainPage-section-content .headline-section h1 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3 {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text,
+.mainPage-section-wrap .mainPage-section-content .rte ol li,
+.mainPage-section-wrap .mainPage-section-content .rte ul li,
+.mainPage-section-wrap .mainPage-section-content .rte p,
+.mainPage-section-wrap .mainPage-section-content .rte a {
+  font-size: max(0.8333333333vw, 15px);
+}
+.mainPage-section-wrap .mainPage-section-content {
+  padding: max(7.8125vw, 130px) max(5.7291666667vw, 30px);
+  max-width: max(52.0833333333vw, 750px);
+  margin: auto;
+}
+.mainPage-section-wrap .mainPage-section-content .headline-section {
+  margin-bottom: max(2.6041666667vw, 25px);
+}
+.mainPage-section-wrap .mainPage-section-content .headline-section h1 {
+  font-size: max(4.5833333333vw, 50px);
+  color: #749FBE;
+}
+.mainPage-section-wrap .mainPage-section-content .rte p,
+.mainPage-section-wrap .mainPage-section-content .rte a {
+  line-height: 1.4em;
+  color: #749FBE;
+}
+.mainPage-section-wrap .mainPage-section-content .rte h2 {
+  font-size: max(2.6041666667vw, 30px);
+  color: #749FBE;
+}
+.mainPage-section-wrap .mainPage-section-content .rte h3,
+.mainPage-section-wrap .mainPage-section-content .rte h4,
+.mainPage-section-wrap .mainPage-section-content .rte h5,
+.mainPage-section-wrap .mainPage-section-content .rte h6 {
+  font-size: max(1.5625vw, 22px);
+  color: #749FBE;
+  margin-bottom: max(0.2604166667vw, 5px);
+}
+.mainPage-section-wrap .mainPage-section-content .rte a {
+  text-decoration: underline;
+}
+.mainPage-section-wrap .mainPage-section-content .rte a:hover {
+  text-decoration: none;
+}
+.mainPage-section-wrap .mainPage-section-content .rte img {
+  width: 100%;
+}
+.mainPage-section-wrap .mainPage-section-content .rte ul {
+  margin-bottom: 5px;
+}
+.mainPage-section-wrap .mainPage-section-content .rte ul li {
+  color: #F9F6E8;
+  line-height: 1.4em;
+  list-style-type: disc;
+}
+.mainPage-section-wrap .mainPage-section-content .rte ol {
+  margin-bottom: 5px;
+}
+.mainPage-section-wrap .mainPage-section-content .rte ol li {
+  color: #F9F6E8;
+  line-height: 1.4em;
+  list-style-type: number;
+}
+.mainPage-section-wrap .mainPage-section-content .rte p {
+  margin-bottom: 5px;
+}

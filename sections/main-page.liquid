@@ -1,0 +1,14 @@
+{{ 'page.css' | asset_url | stylesheet_tag }}
+
+<section id="MainPageSection-{{ section.id }}" class="mainPage-section-wrap" js-highlight-color-switcher="container">
+    <div class="mainPage-section-content">
+        <div class="headline-section">
+            <h1 class="headline-section">
+                {{ page.title }}
+            </h1>
+        </div>
+        <div class="page-description rte">
+            {{ page.content }}
+        </div>
+    </div>
+</section>

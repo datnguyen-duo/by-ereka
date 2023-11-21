@@ -1,0 +1,42 @@
+{{ 'section-info.css' | asset_url | stylesheet_tag }}
+
+<section id="InfoSection-{{ section.id }}" class="info-section-wrap">
+    <div class="info-section-content" data-aos="fade">
+        {% if section.settings.infoTitle != empty %}
+            <span>
+              {{ section.settings.infoTitle }}
+            </span>
+        {% endif %}
+
+        <video autoplay muted playsinline>
+            <source src="{{ 'ereka.mp4' | asset_url }}" type="video/mp4">
+        </video>
+        {% if section.settings.infoDescription != empty %}
+            <h2>
+              {{ section.settings.infoDescription }}
+            </h2>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Info Section",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "infoTitle",
+          "label": "Headline"
+        },{
+          "type": "textarea",
+          "id": "infoDescription",
+          "label": "Description"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Info Section"
+        }
+      ]
+    }
+{% endschema %}

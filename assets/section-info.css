@@ -1,0 +1,81 @@
+/* styles/section-info.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.info-section-wrap .info-section-content h2 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3,
+.info-section-wrap .info-section-content span {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.info-section-wrap {
+  padding: max(7.8125vw, 50px) max(5.7291666667vw, 30px);
+  box-sizing: border-box;
+}
+@media only screen and (max-width : 767px) {
+  .info-section-wrap {
+    padding-bottom: 100px;
+  }
+}
+.info-section-wrap .info-section-content {
+  max-width: max(54.1666666667vw, 500px);
+  margin: auto;
+  text-align: center;
+}
+.info-section-wrap .info-section-content span {
+  color: #749FBE;
+  text-transform: uppercase;
+  font-size: max(0.7291666667vw, 12px);
+  display: block;
+}
+.info-section-wrap .info-section-content video {
+  max-width: max(5.9895833333vw, 75px);
+  margin: auto;
+  margin-top: 20px;
+}
+.info-section-wrap .info-section-content h2 {
+  font-size: max(2.6041666667vw, 30px);
+  color: #749FBE;
+  margin-top: 20px;
+  line-height: 1.1em;
+}
+@media only screen and (max-width : 767px) {
+  .info-section-wrap .info-section-content h2 {
+    margin-top: 0px;
+  }
+}

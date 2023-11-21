@@ -1,0 +1,195 @@
+/* styles/addresses.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.customer.addresses form input:not([type=checkbox])::-moz-placeholder {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font1,
+.customer.addresses form select,
+.customer.addresses form input:not([type=checkbox])::placeholder,
+.customer.addresses form input:not([type=checkbox]),
+.customer.addresses .headline-section .address-header-content .right-side a,
+.customer.addresses p,
+.text {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.customer.addresses .headline-section .address-header-content h1 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3 {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text {
+  font-size: max(0.8333333333vw, 15px);
+}
+.customer.addresses {
+  max-width: 1050px;
+  margin: auto;
+  padding: max(13.0208333333vw, 100px) 0;
+  box-sizing: border-box;
+}
+@media only screen and (max-width : 700px) {
+  .customer.addresses {
+    padding: 100px 0px;
+  }
+}
+.customer.addresses .visually-hidden {
+  display: none;
+}
+.customer.addresses p {
+  font-size: 14px;
+  color: #749FBE;
+  line-height: 24px;
+}
+.customer.addresses p.big-text {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.customer.addresses p.address-headline {
+  margin-top: 30px;
+}
+.customer.addresses .headline-section {
+  margin-bottom: 30px;
+}
+@media only screen and (max-width : 1100px) {
+  .customer.addresses .headline-section {
+    padding: 0 20px;
+  }
+}
+.customer.addresses .headline-section .address-header-content {
+  border-bottom: 1px solid #749FBE;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.customer.addresses .headline-section .address-header-content .right-side {
+  display: flex;
+  align-items: center;
+}
+.customer.addresses .headline-section .address-header-content .right-side .separator {
+  width: 1px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #749FBE;
+}
+.customer.addresses .headline-section .address-header-content .right-side a {
+  font-size: 12px;
+  color: #749FBE;
+  text-decoration: underline;
+}
+.customer.addresses .headline-section .address-header-content .right-side a:hover {
+  text-decoration: none;
+}
+.customer.addresses .headline-section .address-header-content h1 {
+  font-size: 30px;
+  line-height: 38px;
+  color: #749FBE;
+  margin: 0;
+}
+@media only screen and (max-width : 400px) {
+  .customer.addresses .headline-section .address-header-content h1 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+.customer.addresses .addresses-holder {
+  text-align: center;
+}
+@media only screen and (max-width : 1100px) {
+  .customer.addresses .addresses-holder {
+    padding: 0 20px;
+  }
+}
+.customer.addresses .addresses-holder-list {
+  text-align: center;
+}
+@media only screen and (max-width : 1100px) {
+  .customer.addresses .addresses-holder-list {
+    padding: 0 20px;
+  }
+}
+.customer.addresses .button {
+  margin-top: 30px;
+}
+.customer.addresses form label {
+  display: none;
+}
+.customer.addresses form label.checkbox-input {
+  display: inline-block;
+}
+.customer.addresses form input[type=checkbox] {
+  -webkit-appearance: auto;
+}
+.customer.addresses form input:not([type=checkbox]) {
+  background-color: transparent;
+  width: 100%;
+  padding: 22px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #749FBE;
+  font-size: 14px;
+  color: #749FBE;
+  font-weight: 700;
+}
+.customer.addresses form input:not([type=checkbox])::-moz-placeholder {
+  font-size: 14px;
+  opacity: 1;
+  color: #749FBE;
+  font-weight: 700;
+}
+.customer.addresses form input:not([type=checkbox])::placeholder {
+  font-size: 14px;
+  opacity: 1;
+  color: #749FBE;
+  font-weight: 700;
+}
+.customer.addresses form input:not([type=checkbox]):focus {
+  outline: none;
+}
+.customer.addresses form select {
+  width: 100%;
+  padding: 22px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #749FBE;
+  font-size: 14px;
+  color: #749FBE;
+  font-weight: 700;
+}
+.customer.addresses form svg {
+  display: none;
+}

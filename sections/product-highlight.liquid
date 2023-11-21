@@ -1,0 +1,264 @@
+{{ 'product-highlight.css' | asset_url | stylesheet_tag }}
+
+<section class="product-highlight-wrap">
+    <div class="product-highlight-content">
+        <div class="left">
+            <div class="product-gallery-main" data-aos="fade">
+                <div class="swiper" js-product-gallery="main">
+                    <div class="swiper-wrapper">
+                        {% for media in product.media %}
+                            {% case media.media_type %}
+                              {% when 'image' %}
+                              <div class="swiper-slide" data-host="{{ media.host }}">
+                                <div class="media-holder">
+                                    
+                                    <img src="{{ media | image_url: width: 150 }}"
+                                    data-srcset="{{ media | image_url: width: 400 }} 100w, {{ media | image_url: width: 1000 }} 600w, {{ media | image_url }} 1400w"
+                                    class="lazyload"
+                                    alt="{{ media.alt }}" />
+                                </div>
+                              </div>
+                  
+                              {% when 'external_video' %}
+                              <div class="swiper-slide" data-host="{{ media.host }}">
+                                <div class="media-holder external-video">
+                                  {% if media.host == 'vimeo' %}
+                                    <iframe src="https://player.vimeo.com/video/{{ media.external_id }}?byline=0&controls=0&playsinline=1&title=0" frameborder="0"></iframe>
+                                  {% else %}
+                                    {{ media | external_video_tag }}
+                                  {% endif %}
+                                </div>
+                              </div>
+                  
+                              {% when 'video' %}
+                              <div class="swiper-slide" data-host="{{ media.media_type }}">
+                                <div class="media-holder video-holder">
+                                  {{ media | video_tag: muted: true, loop: true, playsinline: true, preload: "metadata" }}
+                                </div>
+                              </div>
+                            {% endcase %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="product-gallery-thumbs" data-aos="fade">
+                <div class=" swiper" js-product-gallery="thumbs">
+                    <div class="swiper-wrapper">
+                        {% for media in product.media %}
+
+                            {% case media.media_type %}
+                                {% when 'image' %}
+                                <div class="swiper-slide">
+                                    <div class="media-holder-wrap">
+                                        <div class="media-holder">
+                                            <img src="{{ media | image_url }}" alt="{{ media.alt }}" />
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                {% when 'external_video' %}
+                                <div class="swiper-slide">
+                                    <div class="media-holder-wrap">
+                                        <div class="media-holder">
+                                            <img src="{{ media.preview_image | image_url}}" alt="{{ media.alt }}">
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                {% when 'video' %}
+                                <div class="swiper-slide">
+                                    <div class="media-holder-wrap">
+                                        <div class="media-holder">
+                                            <img src="{{ media.preview_image | image_url }}" alt="{{ media.alt }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endcase %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-content" data-aos="fade">
+                <div class="headline-holder">
+                    <div class="subtitle">
+                        {{ product.metafields.custom.product_subtitle }}
+                    </div>
+                    <h1>{{ product.title }}</h1>
+                </div>
+                <div class="product-description-wrap">
+                    <div class="price">
+                        {% if product.compare_at_price %}
+                            <span class="regular-price">{{ product.price | money }}</span>
+                    
+                            <span class="compared-price">
+                            {{ product.compare_at_price | money }}
+                            </span>
+                        {% else %}
+                    
+                            <span class="regular-price">
+                            {{ product.price | money }}
+                            </span>
+                        {% endif %}
+                    </div>
+
+                    <div class="product-description rte">
+                        {{ product.description }}
+                    </div>
+
+                    <div class="tags-holder {% if product.tags > 1 %}one-tag{% endif %}">
+                        {% for tag in product.tags %}
+                            <div class="tag">
+                                <span>
+                                {{ tag }}
+                                </span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="single-row">
+                        <div class="left-content">
+                            Color
+                        </div>
+                        <div class="right-content">
+                            <p>
+                                {{ product.title }}
+                            </p>
+                            <div class="color-holder">
+                                <div class="single-color" style="--tooltip-color: {{ product.metafields.custom.product_color_code }};">
+                                    <span style="background-color: {{ product.metafields.custom.product_color_code }}"></span>
+                                </div>
+                                {% for colorVariable in collections["all"].products %}
+                                    {% if colorVariable.metafields.custom.subtitle == product.metafields.custom.subtitle and colorVariable.title != product.title %}
+                                        <a href="{{ colorVariable.url | within: collection }}" class="single-color" style="--tooltip-color: {{ colorVariable.metafields.custom.product_color_code }};">
+                                            <span style="background-color: {{ colorVariable.metafields.custom.product_color_code }}"></span>
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% if product.metafields.custom.product_material != null %}
+                        <div class="single-row">
+                            <div class="left-content">
+                                Material
+                            </div>
+                            <div class="right-content">
+                                <p>
+                                    {{ product.metafields.custom.product_material }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if product.metafields.custom.product_size != null %}
+                        <div class="single-row">
+                            <div class="left-content">
+                                Size
+                            </div>
+                            <div class="right-content">
+                                <p>
+                                    {{ product.metafields.custom.product_size }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="add-to-cart-wrap">
+                    {% if product.available %}
+                        <div class="qnt-wrap">
+                            <span class="minus"><img src="{{ 'minus.svg' | asset_url }}" /></span>
+                            <input type="number" value="1" min="1" step="1">
+                            <span class="plus"><img src="{{ 'plus.svg' | asset_url }}" /></span>
+                        </div>
+
+                        <button class="btn blue-fill add-to-cart-button" data-title="add to cart" js-cart="add-cart-item" data-quantity="1" data-id="{{ product.variants[0].id }}">
+                            add to cart
+                        </button>
+                    {% else %}
+                        <a class="klaviyo-bis-trigger btn blue-fill" data-title="Notify Me When Available" href="#">Notify Me When Available</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-features-wrap">
+        <div class="product-features-content">
+            {% if product.metafields.custom.product_features != null or product.metafields.custom.care_instructions != null or product.metafields.custom.product_shipping_and_returns != null or product.metafields.custom.dimensions != null %}
+                <div class="single-feature" data-aos="fade">
+                    <div class="left-side">
+                        <div class="left-content">
+                            <h2>
+                                Features
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <div class="features-list">
+                            {% if product.metafields.custom.product_features != null %}
+                                <div class="single-item">
+                                    <h3>features</h3>
+                                    <div class="description rte">
+                                        {{ product.metafields.custom.product_features | metafield_tag }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if product.metafields.custom.care_instructions != null %}
+                                <div class="single-item">
+                                    <h3>care instructions</h3>
+                                    <div class="description rte">
+                                        {{ product.metafields.custom.care_instructions | metafield_tag }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if product.metafields.custom.product_shipping_and_returns != null %}
+                                <div class="single-item">
+                                    <h3>shipping & returns</h3>
+                                    <div class="description rte">
+                                        {{ product.metafields.custom.product_shipping_and_returns | metafield_tag }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if product.metafields.custom.dimensions != null %}
+                                <div class="single-item">
+                                    <h3>dimensions</h3>
+                                    <div class="description rte">
+                                        {{ product.metafields.custom.dimensions | metafield_tag }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if product.metafields.custom.description != null or product.metafields.custom.description_title != null or product.metafields.custom.description_media != null %}
+                <div class="single-feature" data-aos="fade">
+                    <div class="left-side">
+                        <div class="left-content">
+                            <h2>
+                                {{ product.metafields.custom.description_title }}
+                            </h2>
+
+                            <p>
+                                {{ product.metafields.custom.description |  newline_to_br }}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="right-side">
+                        <div class="features-list">
+                            <div class="single-item no-border">
+                                <div class="media-wrap">
+                                    {{ product.metafields.custom.description_media | media_tag: autoplay: true, loop: true, controls: false, preload: "metadata", playsinline: true }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

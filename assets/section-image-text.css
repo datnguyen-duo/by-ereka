@@ -1,0 +1,137 @@
+/* styles/section-image-text.scss */
+@font-face {
+  font-family: "cooper";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/cooper.woff?v=1697546053) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "adieu";
+  src: url(https://cdn.shopify.com/s/files/1/0829/0612/0509/files/Adieu-Light.woff?v=1697546716) format("woff");
+  font-style: normal;
+  font-weight: "normal";
+}
+@font-face {
+  font-family: "aktiv-grotesk";
+  src:
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),
+    url(https://use.typekit.net/af/ab3e12/000000000000000077359d4f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+.font1,
+.text,
+.image-text-section-wrap .image-text-section-content .left .left-content p,
+.image-text-section-wrap .image-text-section-content .left .left-content span,
+.image-text-section-wrap .image-text-section-content .left .left-content q {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font2,
+.image-text-section-wrap .image-text-section-content .left .left-content h2 {
+  font-family: "cooper", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.font3,
+.image-text-section-wrap .image-text-section-content .left .left-content q {
+  font-family: "adieu", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.text,
+.image-text-section-wrap .image-text-section-content .left .left-content p,
+.image-text-section-wrap .image-text-section-content .left .left-content span,
+.image-text-section-wrap .image-text-section-content .left .left-content q {
+  font-size: max(0.8333333333vw, 15px);
+}
+.image-text-section-wrap .image-text-section-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.image-text-section-wrap .image-text-section-content .left {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (max-width : 1000px) {
+  .image-text-section-wrap .image-text-section-content .left {
+    width: 100%;
+    order: 2;
+  }
+}
+.image-text-section-wrap .image-text-section-content .left .left-content {
+  max-width: max(23.4375vw, 450px);
+  margin: auto;
+  text-align: center;
+  padding: 0 max(5.2083333333vw, 30px);
+}
+.image-text-section-wrap .image-text-section-content .left .left-content h2 {
+  font-size: max(4.5833333333vw, 50px);
+  color: #749FBE;
+  margin-bottom: max(5.2083333333vw, 25px);
+}
+.image-text-section-wrap .image-text-section-content .left .left-content q {
+  color: #749FBE;
+  text-transform: uppercase;
+  line-height: 1.4em;
+  max-width: max(18.2291666667vw, 350px);
+  margin: auto;
+  display: block;
+}
+.image-text-section-wrap .image-text-section-content .left .left-content span {
+  display: block;
+  margin-top: 15px;
+  font-size: max(0.7291666667vw, 12px);
+  color: #749FBE;
+}
+.image-text-section-wrap .image-text-section-content .left .left-content p {
+  color: #749FBE;
+  margin: auto;
+  border-top: 1px dashed #749FBE;
+  padding-top: 40px;
+  margin-top: 40px;
+  line-height: 1.4em;
+  text-align: center;
+}
+@media only screen and (max-width : 767px) {
+  .image-text-section-wrap .image-text-section-content .left .left-content p {
+    padding-top: 25px;
+    margin-top: 25px;
+  }
+}
+.image-text-section-wrap .image-text-section-content .right {
+  width: 60%;
+  background-color: #749FBE;
+  padding: max(7.2916666667vw, 60px) max(7.8125vw, 40px);
+  box-sizing: border-box;
+}
+@media only screen and (max-width : 1000px) {
+  .image-text-section-wrap .image-text-section-content .right {
+    width: 100%;
+    order: 1;
+    margin-bottom: 50px;
+  }
+}
+.image-text-section-wrap .image-text-section-content .right .media-holder {
+  overflow: hidden;
+  position: relative;
+  padding-top: 80%;
+}
+.image-text-section-wrap .image-text-section-content .right .media-holder img {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

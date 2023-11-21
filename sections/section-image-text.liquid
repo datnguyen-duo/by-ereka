@@ -1,0 +1,77 @@
+{{ 'section-image-text.css' | asset_url | stylesheet_tag }}
+
+<section id="ImageTextSection-{{ section.id }}" class="image-text-section-wrap">
+    <div class="image-text-section-content">
+        <div class="left">
+            <div class="left-content" data-aos="fade">
+                
+                {% if section.settings.imgMainTitle != empty %}
+                    <h2>{{ section.settings.imgMainTitle }}</h2>
+                {% endif %}
+                <div class="quote-wrap">
+                    {% if section.settings.imgQuote != empty %}
+                        <q>{{ section.settings.imgQuote }}</q>
+                    {% endif %}
+                    {% if section.settings.imgAuthor != empty %}
+                        <span>
+                            {{ section.settings.imgAuthor }}
+                        </span>
+                    {% endif %}
+                    
+                </div>
+                {% if section.settings.imgDescription != empty %}
+                    <p>
+                        {{ section.settings.imgDescription }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="right" data-aos="fade">
+            <div class="right-content" data-aos="fade" data-aos-delay="400">
+                {% if section.settings.imgImage != null %}
+                    <div class="media-holder">
+                        <img
+                        src="{{ section.settings.imgImage | image_url: width: 150 }}"
+                        data-srcset="{{ section.settings.imgImage | image_url: width: 400 }} 100w, {{ section.settings.imgImage | image_url: width: 1000 }} 600w, {{ section.settings.imgImage | image_url }} 1400w"
+                        class="lazyload"
+                        alt="{{ section.settings.imgImage.alt }}" />
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+      "name": "Image With Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "imgImage",
+          "label": "Image"
+        },{
+          "type": "textarea",
+          "id": "imgMainTitle",
+          "label": "Headline"
+        },{
+          "type": "textarea",
+          "id": "imgQuote",
+          "label": "Quote"
+        },{
+          "type": "text",
+          "id": "imgAuthor",
+          "label": "Author"
+        },{
+          "type": "textarea",
+          "id": "imgDescription",
+          "label": "Description"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Image With Text"
+        }
+      ]
+    }
+  {% endschema %}
